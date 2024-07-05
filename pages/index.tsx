@@ -1,13 +1,12 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import Link from "next/link";
-
-const inter = Inter({ subsets: ["latin"] });
+import Hero from "@/components/hero";
+import Collections from "@/components/collections";
 
 export default function Home() {
   return (
-    <main>
-      <h1>Wassup Nigga</h1>
+    <main className="font-fontInter">
+      <Hero />
+      <Collections />
       <Link href="/testing">Next Page</Link>
     </main>
   );
