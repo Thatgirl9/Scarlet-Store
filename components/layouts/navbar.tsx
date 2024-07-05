@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import Cart from "../../public/icons/ant-design_shopping-cart-outlined.png";
-import DesktopIcon from "../../public/icons/bx_bx-desktop.png";
-import MobileIcon from "../../public/icons/clarity_mobile-solid.png";
+import Cart from "../../public/assets/icons/ant-design_shopping-cart-outlined.png";
+import DesktopIcon from "../../public/assets/icons/bx_bx-desktop.png";
+import MobileIcon from "../../public/assets/icons/clarity_mobile-solid.png";
 import { useRouter } from "next/router";
 
 const Navbar: React.FC = () => {
@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
       >
         {/* Logo + Hamburger */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center text-black-primary">
             <Link href="/" className="font-bold text-3xl">
               The Scarlet Store
             </Link>

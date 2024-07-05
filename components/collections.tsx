@@ -1,11 +1,7 @@
-import BodyCons from "@/public/images/unsplash_h5cd51KXmRQ.png";
-import CropTops from "@/public/images/unsplash_MYbhN8KaaEc.png";
-import Trousers from "@/public/images/unsplash_wINNAh0IeCg.png";
-import Image from "next/image";
 import Link from "next/link";
 const Collections: React.FC = () => {
   return (
-    <main className="mt-[1em] md:px-14 px-6">
+    <section className="mt-[1em] md:px-14 px-6">
       <h1 className="font-fontInter text-2xl font-extrabold uppercase text-black-primary">
         Collections
       </h1>
@@ -83,7 +79,7 @@ const Collections: React.FC = () => {
 
         <div></div>
       </div>
-    </main>
+    </section>
   );
 };
 
