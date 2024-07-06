@@ -6,6 +6,7 @@ import Jeans from "@/public/assets/discount/image 12 (3).png";
 import ConTop from "@/public/assets/discount/image 12 (4).png";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Discount: React.FC = () => {
   const discountSales = [
@@ -58,9 +59,23 @@ const Discount: React.FC = () => {
     },
   ];
 
+  const router = useRouter();
   return (
-    <section className="mt-[3em] md:px-14 px-6">
-      <h1 className="font-fontInter text-2xl font-extrabold uppercase text-black-primary">
+    <section
+      className={`${
+        router.pathname === "/"
+          ? "mt-[4em] md:px-14 px-6 w-full"
+          : "mt-[0] md:px-0 px-0"
+      } `}
+    >
+      <h1
+        className={` 
+      ${
+        router.pathname === "/"
+          ? "font-fontInter text-2xl font-extrabold uppercase text-black-primary"
+          : "hidden"
+      } `}
+      >
         30% DISCOUNT DEALS
       </h1>
 
@@ -91,9 +106,15 @@ const Discount: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-[2.5em] flex justify-center items-center ">
+      <div
+        className={` ${
+          router.pathname === "/"
+            ? "mt-[2.5em] flex justify-center items-center"
+            : "hidden"
+        } `}
+      >
         <button className="border border-gray-primary p-2 px-3 rounded-[0.2em] font-semibold text-black-primary">
-          <Link href="/products">See More</Link>
+          <Link href="/productsListing">See More</Link>
         </button>
       </div>
     </section>

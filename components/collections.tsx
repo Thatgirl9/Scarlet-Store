@@ -1,7 +1,7 @@
 import Link from "next/link";
 const Collections: React.FC = () => {
   return (
-    <section className="mt-[1em] md:px-14 px-6">
+    <section className="mt-[1em] md:px-14 px-6 w-full">
       <h1 className="font-fontInter text-2xl font-extrabold uppercase text-black-primary">
         Collections
       </h1>

@@ -9,8 +9,10 @@ import Jumper from "@/public/assets/featured/image 12 (8).png";
 import ConTop from "@/public/assets/featured/image 12 (9).png";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Featured: React.FC = () => {
+  const router = useRouter();
   const featured = [
     {
       image: CCut,
@@ -99,12 +101,25 @@ const Featured: React.FC = () => {
   ];
 
   return (
-    <section className="mt-[4em] md:px-14 px-6">
-      <h1 className="font-fontInter text-2xl font-extrabold uppercase text-black-primary">
+    <section
+      className={`${
+        router.pathname === "/"
+          ? "mt-[4em] md:px-14 px-6 w-full"
+          : "mt-[0] md:px-0 px-0"
+      } `}
+    >
+      <h1
+        className={` 
+      ${
+        router.pathname === "/"
+          ? "font-fontInter text-2xl font-extrabold uppercase text-black-primary"
+          : "hidden"
+      } `}
+      >
         Featured
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-[2.5em]  mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-[2.5em]  mt-6 ">
         {featured.map((item, index) => (
           <div key={index} className="flex flex-col">
             <div className="relative">

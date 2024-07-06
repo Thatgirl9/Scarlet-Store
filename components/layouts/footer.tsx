@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-orange-bg mt-[7em] md:px-14 md:py-14 px-6 text-white-bg">
+    <footer className="bg-orange-bg mt-[7em] md:px-14 md:py-14 px-6 text-white-bg w-full">
       <div className="flex justify-between">
         <div>
           <h1 className="font-bold text-3xl font-fontRaleway mb-2">
