@@ -99,7 +99,7 @@ const Featured: React.FC = () => {
   ];
 
   return (
-    <section className="mt-[3.3em] md:px-14 px-6">
+    <section className="mt-[4em] md:px-14 px-6">
       <h1 className="font-fontInter text-2xl font-extrabold uppercase text-black-primary">
         Featured
       </h1>
@@ -117,14 +117,14 @@ const Featured: React.FC = () => {
               )}
             </div>
 
-            <h2 className="font-fontInter text-lg font-semibold mt-3">
+            <h2 className="font-fontRaleway text-lg font-semibold mt-3">
               {item.title}
             </h2>
 
             {/* <div className="flex items-center mt-2"> */}
             {item.discount && (
-              <p className="line-through text-gray-primary text-sm my-1">
-                {item.slashedPrice}
+              <p className="line-through decoration-orange-primary text-gray-primary text-sm my-1">
+                &#8358;{item.slashedPrice}
               </p>
             )}
 
@@ -134,8 +134,8 @@ const Featured: React.FC = () => {
                 item.discount ? "mt-0" : "mt-7"
               }`}
             >
-              <p className="font-semibold text-black-primary text-lg">
-                {item.price}
+              <p className="font-semibold text-black-primary text-lg font-fontInter">
+                &#8358;{item.price}
               </p>
 
               <button className="bg-orange-primary text-white-bg text-sm font-semibold px-3 py-2 rounded-[0.3em]">

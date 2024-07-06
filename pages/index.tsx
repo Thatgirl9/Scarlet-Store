@@ -11,7 +11,6 @@ export default function Home() {
       <Collections />
       <Discount />
       <Featured />
-      <Link href="/testing">Next Page</Link>
     </main>
   );
 }

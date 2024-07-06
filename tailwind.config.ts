@@ -20,6 +20,7 @@ const config: Config = {
         "gray-tertiary": "#484848",
         "gray-border": "#747474",
         "gray-text": "#CDD0D1",
+        "gray-bg": "#F5F5F5",
       },
 
       fontFamily: {
