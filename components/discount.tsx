@@ -8,73 +8,89 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import internal from "stream";
+import { Product } from "@/types/Product";
+import { useCart } from "@/context/cartContext";
 
 interface DiscountProps {
   searchQuery: string;
 }
 
+const discountSales: Product[] = [
+  {
+    id: 10,
+    image: Bodysuit,
+    title: "Sleeveless Bodysuit",
+    discount: false,
+    soldOut: false,
+    slashedPrice: "200,000",
+    price: "139,000",
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 11,
+    image: Necked,
+    title: "Halter-necked body con top",
+    slashedPrice: "200,000",
+    discount: false,
+    soldOut: false,
+    price: "139,000",
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 12,
+    image: CropTop,
+    title: "Sleeveless Crop Top",
+    slashedPrice: "5,500",
+    discount: false,
+    soldOut: false,
+    price: "5,000",
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 13,
+    image: BodyCon,
+    title: "Sleeveless Bodycon Top",
+    slashedPrice: "200,000",
+    discount: false,
+    soldOut: false,
+    price: "139,000",
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 14,
+    image: Jeans,
+    title: "Washed Skinny Jeans",
+    slashedPrice: "5,500",
+    discount: false,
+    soldOut: false,
+    price: "5,000",
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 15,
+    image: ConTop,
+    title: "Sleeveless Bodycon Top",
+    slashedPrice: "200,000",
+    discount: false,
+    soldOut: false,
+    price: "139,000",
+    buttonText: "Add to Cart",
+  },
+];
+
 const Discount: React.FC<DiscountProps> = ({ searchQuery }) => {
-  const discountSales = [
-    {
-      id: "d1",
-      image: Bodysuit,
-      title: "Sleeveless Bodysuit",
-      slashedPrice: "200,000",
-      price: "139,000",
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "d2",
-      image: Necked,
-      title: "Halter-necked body con top",
-      slashedPrice: "200,000",
-      price: "139,000",
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "d3",
-      image: CropTop,
-      title: "Sleeveless Crop Top",
-      slashedPrice: "5,500",
-      price: "5,000",
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "d4",
-      image: BodyCon,
-      title: "Sleeveless Bodycon Top",
-      slashedPrice: "200,000",
-      price: "139,000",
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "d5",
-      image: Jeans,
-      title: "Washed Skinny Jeans",
-      slashedPrice: "5,500",
-      price: "5,000",
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "d6",
-      image: ConTop,
-      title: "Sleeveless Bodycon Top",
-      slashedPrice: "200,000",
-      price: "139,000",
-      buttonText: "Add to Cart",
-    },
-  ];
+  const router = useRouter();
+  const { addToCart } = useCart();
 
   const filteredProducts = discountSales.filter((product) => {
     return product.title?.toLowerCase().includes(searchQuery);
   });
 
-  const router = useRouter();
   return (
     <section
       className={`${
@@ -112,8 +128,11 @@ const Discount: React.FC<DiscountProps> = ({ searchQuery }) => {
                       <p className="text-black-secondary font-fontInter text-xl font-bold">
                         &#8358;{sale.price}
                       </p>
-                      <button className="bg-orange-primary text-white-bg font-semibold py-2 px-3 rounded-[0.3em]">
-                        <Link href="/carts">{sale.buttonText}</Link>
+                      <button
+                        className="bg-orange-primary text-white-bg font-semibold py-2 px-3 rounded-[0.3em]"
+                        onClick={() => addToCart(sale)}
+                      >
+                        {sale.buttonText}
                       </button>
                     </div>
                   </div>
@@ -134,8 +153,11 @@ const Discount: React.FC<DiscountProps> = ({ searchQuery }) => {
                       <p className="text-black-secondary font-fontInter text-xl font-bold">
                         &#8358;{sale.price}
                       </p>
-                      <button className="bg-orange-primary text-white-bg font-semibold py-2 px-3 rounded-[0.3em]">
-                        <Link href="/carts">{sale.buttonText}</Link>
+                      <button
+                        className="bg-orange-primary text-white-bg font-semibold py-2 px-3 rounded-[0.3em]"
+                        onClick={() => addToCart(sale)}
+                      >
+                        {sale.buttonText}
                       </button>
                     </div>
                   </div>

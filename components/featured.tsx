@@ -10,108 +10,112 @@ import ConTop from "@/public/assets/featured/image 12 (9).png";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useCart } from "@/context/cartContext";
+import { Product } from "@/types/Product";
 
 interface FeaturedProps {
   searchQuery: string;
 }
 
+const featured: Product[] = [
+  {
+    id: 1,
+    image: CCut,
+    title: "C-Cut Crop top",
+    discount: false,
+    price: "5,000",
+    soldOut: false,
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 2,
+    image: Bodysuit,
+    title: "Sleeveless Bodycon Top",
+    discount: false,
+    price: "6,000",
+    soldOut: false,
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 3,
+    image: CropTop,
+    title: "Sleeveless Crop Top",
+    discount: true,
+    slashedPrice: "5,500",
+    price: "5,000",
+    soldOut: false,
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 4,
+    image: BodyCon,
+    title: "Sleeveless Bodycon Top",
+    discount: false,
+    price: "6,000",
+    soldOut: false,
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 5,
+    image: BodyConWhite,
+    title: "Sleeveless Bodycon Top",
+    discount: false,
+    price: "4,000",
+    soldOut: false,
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 6,
+    image: Jeans,
+    title: "Sleeveless Bodycon Top",
+    discount: true,
+    slashedPrice: "5,500",
+    price: "5,000",
+    soldOut: true,
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 7,
+    image: Cargo,
+    title: "Cargo Pants",
+    discount: true,
+    slashedPrice: "5,500",
+    price: "4,000",
+    soldOut: true,
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 8,
+    image: Jumper,
+    title: "Gajio Jumper Pants",
+    discount: false,
+    price: "11,000",
+    soldOut: false,
+    buttonText: "Add to Cart",
+  },
+
+  {
+    id: 9,
+    image: ConTop,
+    title: "Sleeveless Bodycon Top",
+    discount: true,
+    slashedPrice: "5,500",
+    price: "5,000",
+    soldOut: true,
+    buttonText: "Add to Cart",
+  },
+];
+
 const Featured: React.FC<FeaturedProps> = ({ searchQuery }) => {
   const router = useRouter();
-  const featured = [
-    {
-      id: "f1",
-      image: CCut,
-      title: "C-Cut Crop top",
-      discount: false,
-      price: "5,000",
-      soldOut: false,
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "f2",
-      image: Bodysuit,
-      title: "Sleeveless Bodycon Top",
-      discount: false,
-      price: "6,000",
-      soldOut: false,
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "f3",
-      image: CropTop,
-      title: "Sleeveless Crop Top",
-      discount: true,
-      slashedPrice: "5,500",
-      price: "5,000",
-      soldOut: false,
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "f4",
-      image: BodyCon,
-      title: "Sleeveless Bodycon Top",
-      discount: false,
-      price: "6,000",
-      soldOut: false,
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "f5",
-      image: BodyConWhite,
-      title: "Sleeveless Bodycon Top",
-      discount: false,
-      price: "4,000",
-      soldOut: false,
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "f6",
-      image: Jeans,
-      title: "Sleeveless Bodycon Top",
-      discount: true,
-      slashedPrice: "5,500",
-      price: "5,000",
-      soldOut: true,
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "f7",
-      image: Cargo,
-      title: "Cargo Pants",
-      discount: true,
-      slashedPrice: "5,500",
-      price: "4,000",
-      soldOut: true,
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "f8",
-      image: Jumper,
-      title: "Gajio Jumper Pants",
-      discount: false,
-      price: "11,000",
-      soldOut: false,
-      buttonText: "Add to Cart",
-    },
-
-    {
-      id: "f9",
-      image: ConTop,
-      title: "Sleeveless Bodycon Top",
-      discount: true,
-      slashedPrice: "5,500",
-      price: "5,000",
-      soldOut: true,
-      buttonText: "Add to Cart",
-    },
-  ];
+  const { addToCart } = useCart();
 
   const filteredProducts = featured.filter((product) => {
     return product.title?.toLowerCase().includes(searchQuery);
@@ -171,8 +175,11 @@ const Featured: React.FC<FeaturedProps> = ({ searchQuery }) => {
                     &#8358;{item.price}
                   </p>
 
-                  <button className="bg-orange-primary text-white-bg text-sm font-semibold px-3 py-2 rounded-[0.3em]">
-                    <Link href="/carts">{item.buttonText}</Link>
+                  <button
+                    className="bg-orange-primary text-white-bg text-sm font-semibold px-3 py-2 rounded-[0.3em]"
+                    onClick={() => addToCart(item)}
+                  >
+                    {item.buttonText}
                   </button>
                 </div>
               </div>
@@ -208,8 +215,11 @@ const Featured: React.FC<FeaturedProps> = ({ searchQuery }) => {
                     &#8358;{product.price}
                   </p>
 
-                  <button className="bg-orange-primary text-white-bg text-sm font-semibold px-3 py-2 rounded-[0.3em]">
-                    <Link href="/carts">{product.buttonText}</Link>
+                  <button
+                    className="bg-orange-primary text-white-bg text-sm font-semibold px-3 py-2 rounded-[0.3em]"
+                    onClick={() => addToCart(product)}
+                  >
+                    {product.buttonText}
                   </button>
                 </div>
               </div>
