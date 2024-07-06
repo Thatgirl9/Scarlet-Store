@@ -26,11 +26,8 @@ const Navbar: React.FC = () => {
     >
       {/* Second header */}
       <nav
-        className={`md:flex md:justify-between md:items-center  ${
-          router.pathname === "/"
-            ? "lg:border lg:border-gray-border"
-            : "border-none "
-        }`}
+        className={`md:flex md:justify-between md:items-center  
+        `}
       >
         {/* Logo + Hamburger */}
         <div className="flex items-center justify-between">
@@ -79,7 +76,7 @@ const Navbar: React.FC = () => {
                 </Link>
               </li>
             ))}
-            <Link href="/testing" className="no-underline hover:underline">
+            <Link href="/carts" className="no-underline hover:underline">
               <svg
                 width="24"
                 height="24"

@@ -7,10 +7,16 @@ import ConTop from "@/public/assets/discount/image 12 (4).png";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import internal from "stream";
 
-const Discount: React.FC = () => {
+interface DiscountProps {
+  searchQuery: string;
+}
+
+const Discount: React.FC<DiscountProps> = ({ searchQuery }) => {
   const discountSales = [
     {
+      id: "d1",
       image: Bodysuit,
       title: "Sleeveless Bodysuit",
       slashedPrice: "200,000",
@@ -19,6 +25,7 @@ const Discount: React.FC = () => {
     },
 
     {
+      id: "d2",
       image: Necked,
       title: "Halter-necked body con top",
       slashedPrice: "200,000",
@@ -27,6 +34,7 @@ const Discount: React.FC = () => {
     },
 
     {
+      id: "d3",
       image: CropTop,
       title: "Sleeveless Crop Top",
       slashedPrice: "5,500",
@@ -35,6 +43,7 @@ const Discount: React.FC = () => {
     },
 
     {
+      id: "d4",
       image: BodyCon,
       title: "Sleeveless Bodycon Top",
       slashedPrice: "200,000",
@@ -43,6 +52,7 @@ const Discount: React.FC = () => {
     },
 
     {
+      id: "d5",
       image: Jeans,
       title: "Washed Skinny Jeans",
       slashedPrice: "5,500",
@@ -51,6 +61,7 @@ const Discount: React.FC = () => {
     },
 
     {
+      id: "d6",
       image: ConTop,
       title: "Sleeveless Bodycon Top",
       slashedPrice: "200,000",
@@ -58,6 +69,10 @@ const Discount: React.FC = () => {
       buttonText: "Add to Cart",
     },
   ];
+
+  const filteredProducts = discountSales.filter((product) => {
+    return product.title?.toLowerCase().includes(searchQuery);
+  });
 
   const router = useRouter();
   return (
@@ -81,28 +96,51 @@ const Discount: React.FC = () => {
 
       <div>
         <div className="grid grid-cols-3 gap-[2.5em]  mt-[2.4em]">
-          {discountSales.map((sale, index) => (
-            <div key={index} className="flex flex-col ">
-              <Image src={sale.image} alt={sale.title} />
+          {router.pathname === "/"
+            ? discountSales.map((sale) => (
+                <div key={sale.id} className="flex flex-col ">
+                  <Image src={sale.image} alt={sale.title} />
 
-              <div className="flex flex-col mt-[1em] gap-1">
-                <h3 className="text-black-primary font-bold text-2xl font-fontRaleway">
-                  {sale.title}
-                </h3>
-                <p className="text-gray-primary font-fontLato text-base line-through decoration-orange-primary">
-                  &#8358;{sale.slashedPrice}
-                </p>
-                <div className="flex items-center justify-between">
-                  <p className="text-black-secondary font-fontInter text-xl font-bold">
-                    &#8358;{sale.price}
-                  </p>
-                  <button className="bg-orange-primary text-white-bg font-semibold py-2 px-3 rounded-[0.3em]">
-                    <Link href="/cart">{sale.buttonText}</Link>
-                  </button>
+                  <div className="flex flex-col mt-[1em] gap-1">
+                    <h3 className="text-black-primary font-bold text-2xl font-fontRaleway">
+                      {sale.title}
+                    </h3>
+                    <p className="text-gray-primary font-fontLato text-base line-through decoration-orange-primary">
+                      &#8358;{sale.slashedPrice}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <p className="text-black-secondary font-fontInter text-xl font-bold">
+                        &#8358;{sale.price}
+                      </p>
+                      <button className="bg-orange-primary text-white-bg font-semibold py-2 px-3 rounded-[0.3em]">
+                        <Link href="/carts">{sale.buttonText}</Link>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              ))
+            : filteredProducts.map((sale) => (
+                <div key={sale.id} className="flex flex-col ">
+                  <Image src={sale.image} alt={sale.title} />
+
+                  <div className="flex flex-col mt-[1em] gap-1">
+                    <h3 className="text-black-primary font-bold text-2xl font-fontRaleway">
+                      {sale.title}
+                    </h3>
+                    <p className="text-gray-primary font-fontLato text-base line-through decoration-orange-primary">
+                      &#8358;{sale.slashedPrice}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <p className="text-black-secondary font-fontInter text-xl font-bold">
+                        &#8358;{sale.price}
+                      </p>
+                      <button className="bg-orange-primary text-white-bg font-semibold py-2 px-3 rounded-[0.3em]">
+                        <Link href="/carts">{sale.buttonText}</Link>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
         </div>
       </div>
 

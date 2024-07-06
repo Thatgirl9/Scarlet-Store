@@ -1,14 +1,16 @@
 import Discount from "@/components/discount";
 import Featured from "@/components/featured";
 import Search from "@/components/search";
+import { useState } from "react";
 
 const ProductsListing = () => {
+  const [searchQuery, setSearchQuery] = useState("");
   return (
     <main className="text-black mt-[8em] md:px-14 px-6">
-      <Search />
+      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className="mt-[2em]">
-        <Featured />
-        <Discount />
+        <Featured searchQuery={searchQuery} />
+        <Discount searchQuery={searchQuery} />
       </div>
     </main>
   );

@@ -11,10 +11,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Featured: React.FC = () => {
+interface FeaturedProps {
+  searchQuery: string;
+}
+
+const Featured: React.FC<FeaturedProps> = ({ searchQuery }) => {
   const router = useRouter();
   const featured = [
     {
+      id: "f1",
       image: CCut,
       title: "C-Cut Crop top",
       discount: false,
@@ -24,6 +29,7 @@ const Featured: React.FC = () => {
     },
 
     {
+      id: "f2",
       image: Bodysuit,
       title: "Sleeveless Bodycon Top",
       discount: false,
@@ -33,6 +39,7 @@ const Featured: React.FC = () => {
     },
 
     {
+      id: "f3",
       image: CropTop,
       title: "Sleeveless Crop Top",
       discount: true,
@@ -43,6 +50,7 @@ const Featured: React.FC = () => {
     },
 
     {
+      id: "f4",
       image: BodyCon,
       title: "Sleeveless Bodycon Top",
       discount: false,
@@ -52,6 +60,7 @@ const Featured: React.FC = () => {
     },
 
     {
+      id: "f5",
       image: BodyConWhite,
       title: "Sleeveless Bodycon Top",
       discount: false,
@@ -61,6 +70,7 @@ const Featured: React.FC = () => {
     },
 
     {
+      id: "f6",
       image: Jeans,
       title: "Sleeveless Bodycon Top",
       discount: true,
@@ -71,6 +81,7 @@ const Featured: React.FC = () => {
     },
 
     {
+      id: "f7",
       image: Cargo,
       title: "Cargo Pants",
       discount: true,
@@ -81,6 +92,7 @@ const Featured: React.FC = () => {
     },
 
     {
+      id: "f8",
       image: Jumper,
       title: "Gajio Jumper Pants",
       discount: false,
@@ -90,6 +102,7 @@ const Featured: React.FC = () => {
     },
 
     {
+      id: "f9",
       image: ConTop,
       title: "Sleeveless Bodycon Top",
       discount: true,
@@ -99,6 +112,10 @@ const Featured: React.FC = () => {
       buttonText: "Add to Cart",
     },
   ];
+
+  const filteredProducts = featured.filter((product) => {
+    return product.title?.toLowerCase().includes(searchQuery);
+  });
 
   return (
     <section
@@ -120,45 +137,83 @@ const Featured: React.FC = () => {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-[2.5em]  mt-6 ">
-        {featured.map((item, index) => (
-          <div key={index} className="flex flex-col">
-            <div className="relative">
-              <Image src={item.image} alt={item.title} />
+        {router.pathname === "/"
+          ? featured.map((item) => (
+              <div key={item.id} className="flex flex-col">
+                <div className="relative">
+                  <Image src={item.image} alt={item.title} />
 
-              {item.soldOut && (
-                <button className="absolute top-4 right-4 bg-black-secondary text-white-bg text-sm font-medium px-3 py-2 rounded-[0.5em] ">
-                  Sold Out
-                </button>
-              )}
-            </div>
+                  {item.soldOut && (
+                    <button className="absolute top-4 right-4 bg-black-secondary text-white-bg text-sm font-medium px-3 py-2 rounded-[0.5em] ">
+                      Sold Out
+                    </button>
+                  )}
+                </div>
 
-            <h2 className="font-fontRaleway text-lg font-semibold mt-3">
-              {item.title}
-            </h2>
+                <h2 className="font-fontRaleway text-lg font-semibold mt-3">
+                  {item.title}
+                </h2>
 
-            {/* <div className="flex items-center mt-2"> */}
-            {item.discount && (
-              <p className="line-through decoration-orange-primary text-gray-primary text-sm my-1">
-                &#8358;{item.slashedPrice}
-              </p>
-            )}
+                {/* <div className="flex items-center mt-2"> */}
+                {item.discount && (
+                  <p className="line-through decoration-orange-primary text-gray-primary text-sm my-1">
+                    &#8358;{item.slashedPrice}
+                  </p>
+                )}
 
-            {/* </div> */}
-            <div
-              className={`flex justify-between items-center ${
-                item.discount ? "mt-0" : "mt-7"
-              }`}
-            >
-              <p className="font-semibold text-black-primary text-lg font-fontInter">
-                &#8358;{item.price}
-              </p>
+                {/* </div> */}
+                <div
+                  className={`flex justify-between items-center ${
+                    item.discount ? "mt-0" : "mt-7"
+                  }`}
+                >
+                  <p className="font-semibold text-black-primary text-lg font-fontInter">
+                    &#8358;{item.price}
+                  </p>
 
-              <button className="bg-orange-primary text-white-bg text-sm font-semibold px-3 py-2 rounded-[0.3em]">
-                <Link href="/cart">{item.buttonText}</Link>
-              </button>
-            </div>
-          </div>
-        ))}
+                  <button className="bg-orange-primary text-white-bg text-sm font-semibold px-3 py-2 rounded-[0.3em]">
+                    <Link href="/carts">{item.buttonText}</Link>
+                  </button>
+                </div>
+              </div>
+            ))
+          : filteredProducts.map((product) => (
+              <div key={product.id} className="flex flex-col">
+                <div className="relative">
+                  <Image src={product.image} alt={product.title} />
+
+                  {product.soldOut && (
+                    <button className="absolute top-4 right-4 bg-black-secondary text-white-bg text-sm font-medium px-3 py-2 rounded-[0.5em] ">
+                      Sold Out
+                    </button>
+                  )}
+                </div>
+
+                <h2 className="font-fontRaleway text-lg font-semibold mt-3">
+                  {product.title}
+                </h2>
+
+                {product.discount && (
+                  <p className="line-through decoration-orange-primary text-gray-primary text-sm my-1">
+                    &#8358;{product.slashedPrice}
+                  </p>
+                )}
+
+                <div
+                  className={`flex justify-between items-center ${
+                    product.discount ? "mt-0" : "mt-7"
+                  }`}
+                >
+                  <p className="font-semibold text-black-primary text-lg font-fontInter">
+                    &#8358;{product.price}
+                  </p>
+
+                  <button className="bg-orange-primary text-white-bg text-sm font-semibold px-3 py-2 rounded-[0.3em]">
+                    <Link href="/carts">{product.buttonText}</Link>
+                  </button>
+                </div>
+              </div>
+            ))}
       </div>
     </section>
   );
