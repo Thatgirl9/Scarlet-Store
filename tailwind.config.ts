@@ -12,6 +12,7 @@ const config: Config = {
         "white-bg": "#ffffff",
         "white-opacity": "rgba(255, 255, 255, 0.9)",
         "orange-primary": "#D95F27",
+        "orange-secondary": "#F7DFD4",
         "orange-bg": "#2B1308",
         "black-primary": "#1E1E1E",
         "black-secondary": "#242424",
