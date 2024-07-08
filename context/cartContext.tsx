@@ -16,10 +16,11 @@ interface Product {
 interface CartContextType {
   cart: Product[];
   addToCart: (product: Product) => void;
-  removeFromCart: (productId: number) => void;
+  // removeFromCart: (productId: number) => void;
   clearCart: () => void;
   incrementQuantity: (productId: number) => void;
   decrementQuantity: (productId: number) => void;
+  totalPrice: number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -49,11 +50,11 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     });
   };
 
-  const removeFromCart = (productId: number) => {
-    setCart((prevCart) =>
-      prevCart.filter((product) => product.id !== productId)
-    );
-  };
+  // const removeFromCart = (productId: number) => {
+  //   setCart((prevCart) =>
+  //     prevCart.filter((product) => product.id !== productId)
+  //   );
+  // };
 
   const clearCart = () => {
     setCart([]);
@@ -89,15 +90,27 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     );
   };
 
+  const totalPrice = cart.reduce(
+    (acc, product) => acc + parseFloat(product.price) * (product.quantity || 0),
+    0
+  );
+
+  // const totalPrice = cart.reduce(
+  //   (total, product) =>
+  //     total + parseFloat(product.price) * (product.quantity || 0),
+  //   0
+  // );
+
   return (
     <CartContext.Provider
       value={{
         cart,
         addToCart,
-        removeFromCart,
+        // removeFromCart,
         clearCart,
         incrementQuantity,
         decrementQuantity,
+        totalPrice,
       }}
     >
       {children}

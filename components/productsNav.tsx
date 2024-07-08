@@ -15,7 +15,7 @@ const ProductsNav: React.FC = () => {
             href="/productsListing"
             className={` ${
               router.pathname === "/carts"
-                ? "text-black-primary no-underline underline-offset-0 decoration-0"
+                ? "text-black-primary no-underline underline-offset-4 decoration-0 hover:underline "
                 : ""
             }`}
           >

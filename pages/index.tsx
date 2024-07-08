@@ -6,11 +6,11 @@ import Featured from "@/components/featured";
 
 export default function Home() {
   return (
-    <main className="font-fontInter">
+    <main className="font-fontInter ">
       <Hero />
       <Collections />
-      <Discount />
-      <Featured />
+      <Discount searchQuery={""} />
+      <Featured searchQuery={""} />
     </main>
   );
 }

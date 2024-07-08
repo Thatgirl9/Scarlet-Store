@@ -8,20 +8,15 @@ import React, { useState } from "react";
 const Cart: React.FC = () => {
   const {
     cart,
-    removeFromCart,
+    // removeFromCart,
     clearCart,
     incrementQuantity,
     decrementQuantity,
+    totalPrice,
   } = useCart();
 
-  const totalPrice = cart.reduce(
-    (total, product) =>
-      total + parseFloat(product.price) * (product.quantity || 0),
-    0
-  );
-
   return (
-    <main className="mt-[6em] md:px-14 px-6 w-full bg-white-bg">
+    <main className="mt-[6em] md:px-14 px-6 w-full bg-white-bg min-h-[100vh]">
       <ProductsNav />
 
       {cart.length === 0 ? (
@@ -53,7 +48,7 @@ const Cart: React.FC = () => {
 
             {/* {cart.map((product) => ( */}
             <div
-              className="flex gap-2 items-center"
+              className="flex gap-2 items-center hover:cursor-pointer"
               onClick={() => clearCart()}
             >
               <span>
