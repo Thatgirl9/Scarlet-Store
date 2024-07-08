@@ -26,14 +26,14 @@ const Checkout = () => {
       <ProductsNav />
 
       <section className="mt-[2em] flex justify-between">
-        <div className="contact-checkout mt-[1em] w-[50%] h-[80vh] overflow-scroll overflow-x-auto">
+        <div className="contact-checkout mt-[1em] w-[50%] h-[60vh] overflow-scroll overflow-x-auto">
           <ContactForm />
         </div>
 
         {cart.length === 0 ? (
           <div className="hidden"></div>
         ) : (
-          <div className="border border-gray-text mt-[1em] p-[1.4em] rounded-[0.4em] shadow-2xl">
+          <div className="border border-gray-text mt-[1em] p-[1.4em] rounded-[0.4em] shadow-2xl h-full">
             {cart.map((product) => (
               <>
                 <div

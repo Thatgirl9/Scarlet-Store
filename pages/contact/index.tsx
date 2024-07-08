@@ -1,8 +1,9 @@
+import ContactForm from "@/components/contactForm";
+
 const Contact = () => {
   return (
-    <main className="mt-[6em]">
-      <h1>Contact</h1>
-      <p>Send us a message at</p>
+    <main className="mt-[6em] min-h-[100vh] flex justify-center">
+      <ContactForm />
     </main>
   );
 };
