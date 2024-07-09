@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`bg-white-bg w-full md:px-14 px-5 py-5 lg:py-6 lg:pb-7 z-50 fixed top-0 left-0 right-0
+      className={`bg-white-bg w-full md:px-14 px-3 py-5 lg:py-6 lg:pb-7 z-50 fixed top-0 left-0 right-0
  `}
     >
       {/* Second header */}
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
             : "h-0 w-0 md:w-fit left-[-10em] "
         }`}
         >
-          <ul className="flex md:flex-row md:gap-6 font-normal gap-[1.4em] justify-end md:justify-normal md:items-center items-end flex-col  md:border-none list-none pb-[1em] md:pb-0 lg:W-[60%]">
+          <ul className="flex md:flex-row md:gap-8 font-normal gap-[1.4em] justify-end md:justify-normal md:items-center items-end flex-col  md:border-none list-none pb-[1em] md:pb-0 lg:W-[60%]">
             {routes.map((link) => (
               <li key={link.name} className="pt-2">
                 <Link
