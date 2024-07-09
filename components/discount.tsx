@@ -3,11 +3,10 @@ import Necked from "@/public/assets/discount/image 12 (1).png";
 import CropTop from "@/public/assets/discount/image 12 (2).png";
 import BodyCon from "@/public/assets/discount/image 13.png";
 import Jeans from "@/public/assets/discount/image 12 (3).png";
-import ConTop from "@/public/assets/discount/image 12 (4).png";
+import ConTop from "@/public/assets/discount/Frame 1000003698.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import internal from "stream";
 import { Product } from "@/types/Product";
 import { useCart } from "@/context/cartContext";
 
