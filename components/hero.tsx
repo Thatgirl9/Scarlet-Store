@@ -1,5 +1,3 @@
-// import "./components.css";
-
 const Hero: React.FC = () => {
   return (
     <div className=" clothes-bg w-full mt-[2em] min-h-[40dvh] md:min-h-[70vh] md:mt-0 xl:min-h-[100vh] xl:mt-0  flex items-center justify-start md:px-14 px-6 text-white-bg">

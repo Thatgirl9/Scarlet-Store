@@ -8,18 +8,12 @@ const Checkout = () => {
 
   const totalPrice = cart.reduce(
     (total, product) =>
-      total + parseFloat(product.price) * (product.quantity || 0),
+      total +
+      parseFloat(product.price.replace(/,/g, "")) * (product.quantity || 0),
     0
   );
-
-  const additionalCost = "4,000";
-
-  const additionalCostNumber = parseFloat(additionalCost.replace(/,/g, ""));
-
-  const newPrice = totalPrice + +additionalCostNumber;
-
-  // const formatCurrency = (value: number) =>
-  //   value.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const additionalCost = 4000;
+  const newPrice = totalPrice + additionalCost;
 
   return (
     <main className="mt-[6em] md:px-14 px-6 w-full min-h-[100vh]">
@@ -82,8 +76,7 @@ const Checkout = () => {
                   </h1>
                   <p className="text-base font-bold font-fontRaleway">
                     &#8358;
-                    {totalPrice.toFixed(3).replace(/\./g, ",")}
-                    {/* {formatCurrency(totalPrice)} */}
+                    {totalPrice}
                   </p>
                 </div>
 
@@ -93,9 +86,7 @@ const Checkout = () => {
                   </h1>
                   <p className="text-base font-bold font-fontRaleway">
                     &#8358;
-                    {additionalCostNumber}
-                    {/* {additionalCost.toFixed().replace(/\./g, ",")} */}
-                    {/* {totalPrice.toFixed(3).replace(/\./g, ",")} */}
+                    {additionalCost}
                   </p>
                 </div>
 
@@ -104,8 +95,8 @@ const Checkout = () => {
                     Total Price
                   </h1>
                   <p className="text-base font-bold font-fontRaleway">
-                    &#8358; {newPrice}
-                    {/* {newPrice.toFixed(3).replace(/\./g, ",")} */}
+                    &#8358;
+                    {newPrice.toFixed().replace(/" "/g, ",")}
                   </p>
                 </div>
               </div>
@@ -118,8 +109,7 @@ const Checkout = () => {
                 </h1>
                 <p className="md:text-lg text-base font-bold font-fontRaleway">
                   &#8358;
-                  {totalPrice.toFixed(3).replace(/\./g, ",")}
-                  {/* {formatCurrency(totalPrice)} */}
+                  {totalPrice}
                 </p>
               </div>
 
@@ -129,9 +119,7 @@ const Checkout = () => {
                 </h1>
                 <p className="md:text-lg text-base font-bold font-fontRaleway">
                   &#8358;
-                  {additionalCostNumber}
-                  {/* {additionalCost.toFixed().replace(/\./g, ",")} */}
-                  {/* {totalPrice.toFixed(3).replace(/\./g, ",")} */}
+                  {additionalCost}
                 </p>
               </div>
 
@@ -140,8 +128,8 @@ const Checkout = () => {
                   Total Price
                 </h1>
                 <p className="md:text-lg text-xl font-bold font-fontRaleway">
-                  &#8358; {newPrice}
-                  {/* {newPrice.toFixed(3).replace(/\./g, ",")} */}
+                  &#8358;
+                  {newPrice.toFixed().replace(/" "/g, ",")}
                 </p>
               </div>
             </div>

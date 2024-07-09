@@ -3,12 +3,12 @@ import { useCart } from "@/context/cartContext";
 import Trash from "@/public/assets/icons/trash.svg";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 
 const Cart: React.FC = () => {
   const {
     cart,
-    // removeFromCart,
+
     clearCart,
     incrementQuantity,
     decrementQuantity,
@@ -46,7 +46,6 @@ const Cart: React.FC = () => {
               {cart.length} item{cart.length > 1 && "s"} in Cart
             </h1>
 
-            {/* {cart.map((product) => ( */}
             <div
               className="flex gap-2 items-center hover:cursor-pointer"
               onClick={() => clearCart()}
@@ -58,7 +57,6 @@ const Cart: React.FC = () => {
                 Empty Cart
               </h1>
             </div>
-            {/* ))} */}
           </div>
           {cart.map((product) => (
             <>

@@ -65,7 +65,6 @@ const Footer: React.FC = () => {
                     alt="Social Media Icon"
                     className="md:w-[24px] w-[20px] md:h-[24px] h-[20px]"
                   />
-                  {/* Add your desired content here */}
                 </Link>
               );
             })}

@@ -64,17 +64,6 @@ const Collections: React.FC = () => {
               </div>
             </div>
           </div>
-
-          {/* <Image
-            src={CropTops}
-            alt="An Image of a Crop Top"
-            className="h-full"
-          />
-          <Image
-            src={Trousers}
-            alt="An Image of a Pair of Trousers"
-            className="h-full"
-          /> */}
         </div>
 
         <div></div>
