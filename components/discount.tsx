@@ -95,7 +95,7 @@ const Discount: React.FC<DiscountProps> = ({ searchQuery }) => {
     <section
       className={`${
         router.pathname === "/"
-          ? "mt-[4em] md:px-14 px-6 w-full"
+          ? "mt-[4em] md:px-14 px-5 w-full"
           : "mt-[0] md:px-0 px-0"
       } `}
     >
@@ -111,25 +111,37 @@ const Discount: React.FC<DiscountProps> = ({ searchQuery }) => {
       </h1>
 
       <div>
-        <div className="grid grid-cols-3 gap-[2.5em]  mt-[2.4em]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2.5em]  mt-[2.4em]">
           {router.pathname === "/"
             ? discountSales.map((sale) => (
                 <div key={sale.id} className="flex flex-col ">
                   <Image src={sale.image} alt={sale.title} />
 
                   <div className="flex flex-col mt-[1em] gap-1">
-                    <h3 className="text-black-primary font-bold text-2xl font-fontRaleway">
+                    <h3 className="text-black-primary font-bold text-xl lg:text-2xl font-fontRaleway">
                       {sale.title}
                     </h3>
-                    <p className="text-gray-primary font-fontLato text-base line-through decoration-orange-primary">
+
+                    <div className="flex gap-[1.4em] mt-[0.7em] items-center md:hidden">
+                      <p className="text-gray-primary font-fontLato text-base line-through decoration-orange-primary">
+                        &#8358;{sale.slashedPrice}
+                      </p>
+
+                      <p className="text-black-secondary font-fontInter text-lg md:text-xl font-bold">
+                        &#8358;{sale.price}
+                      </p>
+                    </div>
+
+                    <p className="hidden md:block text-gray-primary font-fontLato text-base line-through decoration-orange-primary">
                       &#8358;{sale.slashedPrice}
                     </p>
+
                     <div className="flex items-center justify-between">
-                      <p className="text-black-secondary font-fontInter text-xl font-bold">
+                      <p className="hidden md:block text-black-secondary font-fontInter text-xl font-bold">
                         &#8358;{sale.price}
                       </p>
                       <button
-                        className="bg-orange-primary text-white-bg font-semibold py-2 px-3 rounded-[0.3em]"
+                        className="mt-[0.6em] md:mt-[0] bg-orange-primary text-white-bg font-semibold py-2 px-3 rounded-[0.3em]"
                         onClick={() => addToCart(sale)}
                       >
                         {sale.buttonText}
@@ -146,15 +158,26 @@ const Discount: React.FC<DiscountProps> = ({ searchQuery }) => {
                     <h3 className="text-black-primary font-bold text-2xl font-fontRaleway">
                       {sale.title}
                     </h3>
-                    <p className="text-gray-primary font-fontLato text-base line-through decoration-orange-primary">
+
+                    <div className="flex gap-[1.4em] mt-[0.7em] items-center md:hidden">
+                      <p className="text-gray-primary font-fontLato text-base line-through decoration-orange-primary">
+                        &#8358;{sale.slashedPrice}
+                      </p>
+
+                      <p className="text-black-secondary font-fontInter text-lg md:text-xl font-bold">
+                        &#8358;{sale.price}
+                      </p>
+                    </div>
+
+                    <p className="hidden md:block text-gray-primary font-fontLato text-base line-through decoration-orange-primary">
                       &#8358;{sale.slashedPrice}
                     </p>
                     <div className="flex items-center justify-between">
-                      <p className="text-black-secondary font-fontInter text-xl font-bold">
+                      <p className="hidden md:block text-black-secondary font-fontInter text-xl font-bold">
                         &#8358;{sale.price}
                       </p>
                       <button
-                        className="bg-orange-primary text-white-bg font-semibold py-2 px-3 rounded-[0.3em]"
+                        className="mt-[0.6em] md:mt-[0] bg-orange-primary text-white-bg font-semibold py-2 px-3 rounded-[0.3em]"
                         onClick={() => addToCart(sale)}
                       >
                         {sale.buttonText}

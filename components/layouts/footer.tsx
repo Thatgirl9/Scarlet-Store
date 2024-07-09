@@ -45,13 +45,13 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-orange-bg mt-[7em] md:px-14 md:py-14 px-6 text-white-bg w-full">
-      <div className="flex justify-between">
+    <footer className="bg-orange-bg mt-[7em] md:px-14 md:py-14 p-10 text-white-bg w-full">
+      <div className="flex flex-col gap-[2em] md:flex-row md:justify-between md:gap-0">
         <div>
-          <h1 className="font-bold text-3xl font-fontRaleway mb-2">
+          <h1 className="font-bold text-xl md:text-3xl font-fontRaleway mb-2">
             The Scarlet Store
           </h1>
-          <p className="w-[25ch] font-fontLato font-medium text-gray-text">
+          <p className="w-[25ch] font-fontLato  font-medium text-gray-text">
             The scarlet store is your one stop shop for classic ladies wears
             like crop tops, bodycon tops and trousers.{" "}
           </p>
@@ -60,7 +60,11 @@ const Footer: React.FC = () => {
             {socials.map((social, index) => {
               return (
                 <Link key={index} href={social.link}>
-                  <Image src={social.image} alt="Social Media Icon" />
+                  <Image
+                    src={social.image}
+                    alt="Social Media Icon"
+                    className="md:w-[24px] w-[20px] md:h-[24px] h-[20px]"
+                  />
                   {/* Add your desired content here */}
                 </Link>
               );
@@ -69,14 +73,20 @@ const Footer: React.FC = () => {
         </div>
 
         <div>
-          <h1 className="font-bold text-3xl font-fontRaleway mb-2">Reach us</h1>
+          <h1 className="font-bold text-xl md:text-3xl font-fontRaleway mb-2">
+            Reach us
+          </h1>
 
           <div className="flex flex-col gap-4 mt-4 pr-5">
             {contact.map((item, index) => {
               return (
                 <div key={index} className="font-fontLato flex gap-3">
                   <span>
-                    <Image src={item.image} alt="Contact Icon" />
+                    <Image
+                      src={item.image}
+                      alt="Contact Icon"
+                      className="md:w-[24px] w-[20px] md:h-[24px] h-[20px]"
+                    />
                   </span>
                   <span>
                     <p>{item.text}</p>

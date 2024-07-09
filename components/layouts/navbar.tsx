@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`bg-white-bg w-full md:px-14 px-6 py-5 lg:py-6 lg:pb-7 z-50 fixed top-0 left-0 right-0
+      className={`bg-white-bg w-full md:px-14 px-5 py-5 lg:py-6 lg:pb-7 z-50 fixed top-0 left-0 right-0
  `}
     >
       {/* Second header */}
@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
             className="w-6 h-6 text-4xl text-black md:hidden bg-transparent border-none"
           >
             <ion-icon
-              name={open ? "close" : "menu"}
+              name={open ? "close-outline" : "menu-outline"}
               className="text-black"
             ></ion-icon>
           </button>
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-end text-black-primary">
             <Link
               href="/"
-              className="font-bold md:text-3xl text-2xl font-fontLato"
+              className="font-bold md:text-3xl text-2xl font-fontLato mt-[0.4em] md:mt-0"
             >
               The Scarlet Store
             </Link>
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
             : "h-0 w-0 md:w-fit left-[-10em] "
         }`}
         >
-          <ul className="flex md:flex-row md:gap-6 font-medium gap-[1.4em] justify-end md:justify-normal md:items-center items-end flex-col  md:border-none list-none pb-[1em] md:pb-0 lg:W-[60%]">
+          <ul className="flex md:flex-row md:gap-6 font-normal gap-[1.4em] justify-end md:justify-normal md:items-center items-end flex-col  md:border-none list-none pb-[1em] md:pb-0 lg:W-[60%]">
             {routes.map((link) => (
               <li key={link.name} className="pt-2">
                 <Link
@@ -97,7 +97,7 @@ const Navbar: React.FC = () => {
                   className={` text-gray-primary text-lg  transition-all ease-in-out no-underline hover:underline pt-2
                     ${
                       router.pathname === link.link
-                        ? "text-orange-primary"
+                        ? "text-orange-primary font-medium"
                         : "text-gray-primary"
                     }`}
                   onClick={() => setOpen(!open)}

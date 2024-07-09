@@ -16,13 +16,13 @@ const Cart: React.FC = () => {
   } = useCart();
 
   return (
-    <main className="mt-[6em] md:px-14 px-6 w-full bg-white-bg min-h-[100vh]">
+    <main className="mt-[6em] md:px-14 px-5 w-full bg-white-bg min-h-[100vh]">
       <ProductsNav />
 
       {cart.length === 0 ? (
         <div className="mt-[4em] flex justify-center items-center p-[2em] font-fontRaleway">
           <div className="shadow-2xl flex items-center p-5">
-            <h1 className="text-2xl font-bold text-orange-primary">
+            <h1 className="md:text-2xl text-xl font-bold text-orange-primary">
               Your cart is empty.
             </h1>
             <svg
@@ -40,9 +40,9 @@ const Cart: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className="border border-gray-text mt-[2em] rounded-[0.4em] shadow-2xl p-[2em]">
-          <div className="flex justify-between items-center">
-            <h1 className="font-fontRaleway font-semibold text-lg">
+        <div className="md:border md:border-gray-text mt-[2em] rounded-[0.4em] shadow-none md:shadow-2xl md:p-[2em] ">
+          <div className="flex md:justify-between md:items-center justify-end">
+            <h1 className="font-fontRaleway font-semibold text-lg md:block hidden">
               {cart.length} item{cart.length > 1 && "s"} in Cart
             </h1>
 
@@ -54,7 +54,7 @@ const Cart: React.FC = () => {
               <span>
                 <Image src={Trash} alt="Trash Icon" />
               </span>
-              <h1 className="font-fontRaleway font-semibold text-lg text-orange-primary">
+              <h1 className="hidden md:block font-fontRaleway font-semibold text-lg text-orange-primary">
                 Empty Cart
               </h1>
             </div>
@@ -64,19 +64,21 @@ const Cart: React.FC = () => {
             <>
               <div
                 key={product.id}
-                className="flex p-[1.4em] border-b border-gray-text items-center justify-between"
+                className="flex lg:justify-between md:p-[1.4em] px-[0.5em] py-[0.8em] border-b border-gray-text items-center lg:gap-[0] gap-[1.3em] "
               >
                 <Image
                   src={product.image}
                   alt={product.title}
-                  className="w-[15em] h-[16em]"
+                  className="lg:w-[15em] lg:h-[16em] md:w-[10em] md:h-[11em] w-[7em] h-[8em]"
                 />
-                <h2 className="font-fontRaleway font-semibold text-xl">
+
+                <h2 className="font-fontRaleway font-semibold text-xl hidden lg:block">
                   {product.title}
                 </h2>
 
-                <div className="flex items-center gap-2 font-fontLato">
+                <div className="lg:flex items-center gap-2 font-fontLato hidden ">
                   <p className="h-5 w-5 rounded-full bg-black"></p>
+
                   <select className="text-gray-primary font-medium">
                     <option value="black">Black</option>
                     <option value="yellow">Yellow</option>
@@ -85,10 +87,11 @@ const Cart: React.FC = () => {
                   </select>
                 </div>
 
-                <div className="flex items-center gap-2 font-fontLato">
+                <div className="lg:flex items-center gap-2 font-fontLato hidden">
                   <p className="h-5 w-5 rounded-full bg-orange-secondary flex items-center justify-center text-center text-xs font-semibold text-orange-primary">
                     M
                   </p>
+
                   <select className="text-gray-primary font-medium">
                     <option value="medium">Medium</option>
                     <option value="small">Small</option>
@@ -97,14 +100,14 @@ const Cart: React.FC = () => {
                   </select>
                 </div>
 
-                <p className="text-orange-primary font-fontLato font-semibold text-base">
+                <p className="text-orange-primary font-fontLato font-semibold text-base hidden lg:flex">
                   &#8358;
                   {(parseFloat(product.price) * (product.quantity || 1))
                     .toFixed(3)
                     .replace(/\./g, ",")}
                 </p>
 
-                <div className="flex items-center justify-center text-center">
+                <div className="lg:flex items-center justify-center text-center hidden">
                   {/* Minus */}
                   <button
                     className="text-gray-tertiary bg-gray-text text-lg w-7 h-7"
@@ -126,20 +129,90 @@ const Cart: React.FC = () => {
                     <ion-icon name="add-outline"></ion-icon>
                   </button>
                 </div>
+
+                {/* Mobile + Tablet */}
+                <div className="flex flex-col gap-[0.2em] md:gap-0 lg:hidden w-full">
+                  <h2 className="font-fontRaleway font-semibold text-[14px] md:text-xl">
+                    {product.title}
+                  </h2>
+
+                  <div className="flex items-center lg:hidden justify-between">
+                    <div className="flex flex-col mt-1 gap-1 ">
+                      <div className="flex items-center gap-1 font-fontLato">
+                        <p className="h-4 w-4 rounded-full bg-black"></p>
+                        <p className="text-gray-primary font-medium text-[14px] md:text-base lg:hidden block">
+                          Black
+                        </p>
+                        <select className="text-gray-primary font-medium lg:block hidden">
+                          <option value="black">Black</option>
+                          <option value="yellow">Yellow</option>
+                          <option value="blue">Blue</option>
+                          <option value="white">White</option>
+                        </select>
+                      </div>
+
+                      <div className="flex items-center gap-1 font-fontLato">
+                        <p className="h-4 w-4 rounded-full bg-orange-secondary flex items-center justify-center text-center text-xs font-semibold text-orange-primary">
+                          M
+                        </p>
+                        <p className="text-gray-primary font-medium text-[14px] md:text-base lg:hidden block">
+                          Medium
+                        </p>
+                        <select className="text-gray-primary font-medium lg:block hidden">
+                          <option value="medium">Medium</option>
+                          <option value="small">Small</option>
+
+                          <option value="large">Large</option>
+                        </select>
+                      </div>
+
+                      <p className="text-orange-primary font-fontLato font-semibold text-base">
+                        &#8358;
+                        {(parseFloat(product.price) * (product.quantity || 1))
+                          .toFixed(3)
+                          .replace(/\./g, ",")}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center justify-center text-center">
+                      {/* Minus */}
+                      <button
+                        className="text-gray-tertiary bg-gray-text text-lg w-5 h-6 md:w-7 md:h-7"
+                        onClick={() => decrementQuantity(product.id)}
+                      >
+                        <ion-icon
+                          name="remove-outline"
+                          className="w-6 h-6"
+                        ></ion-icon>
+                      </button>
+                      <p className="font-fontLato font-semibold text-lg bg-gray-bg w-7 h-6 md:w-9 md:h-7">
+                        {product.quantity || 1}
+                      </p>
+                      {/* Add */}
+                      <button
+                        className="text-gray-tertiary bg-gray-text text-lg w-5 h-6 md:w-7 md:h-7"
+                        onClick={() => incrementQuantity(product.id)}
+                      >
+                        <ion-icon name="add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                {/* End Mobile + Tablet */}
               </div>
             </>
           ))}
           <div className="mt-[5em] flex items-center justify-between">
             <div className="text-black-primary font-fontInter">
-              <h1 className="text-base font-bold ">Total Price</h1>
-              <p className="text-3xl font-extrabold ">
+              <h1 className="md:text-base text-sm font-bold ">Total Price</h1>
+              <p className="md:text-3xl text-2xl font-extrabold ">
                 &#8358;
                 {totalPrice.toFixed(3).replace(/\./g, ",")}
               </p>
             </div>
 
             <div className="">
-              <button className="bg-orange-primary text-white font-semibold text-lg py-2 px-4 rounded-[0.4em]">
+              <button className="bg-orange-primary text-white font-semibold text-base py-2 px-4 rounded-[0.4em]">
                 <Link href="/carts/checkout">Go to Checkout</Link>
               </button>
             </div>

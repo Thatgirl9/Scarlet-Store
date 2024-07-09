@@ -1,12 +1,12 @@
 import Link from "next/link";
 const Collections: React.FC = () => {
   return (
-    <section className="mt-[1em] md:px-14 px-6 w-full">
+    <section className="mt-[1em] md:mt-[2em] md:px-14 px-5 w-full">
       <h1 className="font-fontInter text-2xl font-extrabold uppercase text-black-primary">
         Collections
       </h1>
 
-      <div className="grid grid-cols-2 mt-[2em] gap-[2em]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 mt-[2em] gap-[2em]">
         <div className=" body-cons flex justify-start items-end p-[1.6em]">
           <div className="bg-white-opacity p-[1.1em] w-[14em]">
             <div>

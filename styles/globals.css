@@ -14,33 +14,66 @@
   background-size: 100%;
   background-position: center;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 80vh; */
+  /* border: 1px solid red; */
 }
 
 .body-cons {
   background-image: url(../public/assets/heroCollection/unsplash_h5cd51KXmRQ.png);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   width: 100%;
-  min-height: 35em;
+  min-height: 24em;
 }
 
 .crop-tops {
   background-image: url(../public/assets/heroCollection/unsplash_MYbhN8KaaEc.png);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: left;
   width: 100%;
+  min-height: 24em;
   /* height: 100%; */
 }
 
 .trousers {
   background-image: url(../public/assets/heroCollection/unsplash_wINNAh0IeCg.png);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: left;
   width: 100%;
+  min-height: 24em;
+}
+
+@media screen and (min-width: 1024px) {
+  .body-cons {
+    background-image: url(../public/assets/heroCollection/unsplash_h5cd51KXmRQ.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    width: 100%;
+    min-height: 35em;
+  }
+
+  .crop-tops {
+    background-image: url(../public/assets/heroCollection/unsplash_MYbhN8KaaEc.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: left;
+    width: 100%;
+    min-height: 0;
+    /* height: 100%; */
+  }
+
+  .trousers {
+    background-image: url(../public/assets/heroCollection/unsplash_wINNAh0IeCg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: left;
+    width: 100%;
+    min-height: 0;
+  }
 }
 
 .contact-checkout::-webkit-scrollbar {

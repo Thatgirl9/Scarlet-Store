@@ -8,7 +8,7 @@ interface SearchProps {
 const Search: React.FC<SearchProps> = ({ searchQuery, setSearchQuery }) => {
   return (
     <div>
-      <div className="border border-gray-secondary flex gap-2 items-center w-[23em] p-[0.6em] rounded-[0.5em] text-black-primary">
+      <div className="border border-gray-secondary flex gap-2 items-center w-[99%] md:w-[23em] p-[0.6em] rounded-[0.5em] text-black-primary">
         <span>
           <Image src={SearchIcon} alt="A Search Icon" />
         </span>

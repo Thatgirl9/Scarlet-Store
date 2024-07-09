@@ -18,14 +18,16 @@ const ContactForm: React.FC = () => {
     <form
       action=""
       className={`font-fontRaleway text-black-primary 
-      ${router.pathname === "/contact" ? "w-normal" : "w-[93%]"}`}
+      ${router.pathname === "/contact" ? "w-normal" : "lg:w-[93%] w-full"}`}
       onSubmit={handleSubmit}
     >
       {/* Customer Information */}
       <div>
         <h1
           className={`font-bold text-2xl font-fontInter ${
-            router.pathname === "/contact" ? "text-center" : "text-left"
+            router.pathname === "/contact"
+              ? "text-center"
+              : "text-left text-xl md:text-2xl"
           }`}
         >
           {router.pathname === "/contact"
@@ -46,78 +48,18 @@ const ContactForm: React.FC = () => {
         </div>
       </div>
 
-      {router.pathname === "/contact" ? (
-        <div className="hidden"></div>
-      ) : (
-        <>
-          {/*Payment Information  */}
-          <div className="mb-[2em]">
-            <div>
-              <h1 className="font-bold text-2xl font-fontInter">
-                Payment Information
-              </h1>
-              <p className="text-gray-primary font-fontLato text-base mt-[0.4em]">
-                Enter your Visa or Mastercard details
-              </p>
-            </div>
-
-            <div className="mt-[1.5em] font-fontInter">
-              <label htmlFor="cardName">Cardholder’s Name</label>
-              <input
-                name="cardName"
-                type="text"
-                placeholder="Enter the name on the card"
-                className="w-full p-3 font-medium border border-gray-text rounded-[0.4em] mt-1 font-fontLato"
-              />
-            </div>
-
-            <div className="mt-[1.3em] font-fontInter">
-              <label htmlFor="cardNumber">Card Number</label>
-              <input
-                name="cardNumber"
-                type="number"
-                placeholder="1234 5678 9123"
-                className="w-full p-3 font-medium border border-gray-text rounded-[0.4em] mt-1 font-fontLato"
-              />
-            </div>
-
-            <div className="font-fontInter mt-[1.3em] flex items-center gap-[1.3em] font-medium ">
-              <div>
-                <label htmlFor="cvv">CVV</label>
-                <input
-                  name="cvv"
-                  type="number"
-                  placeholder="123"
-                  className="w-full p-3 border border-gray-text rounded-[0.4em] mt-1"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="date">Expiry Date</label>
-                <input
-                  name="date"
-                  type="text"
-                  placeholder="MM/YY"
-                  className="w-full p-3 border border-gray-text rounded-[0.4em] mt-1"
-                />
-              </div>
-            </div>
-          </div>
-        </>
-      )}
-
       {/* Shipping Information */}
       <div className="mb-[2em]">
         {router.pathname === "/contact" ? (
           <div className="hidden"></div>
         ) : (
-          <h1 className="font-bold text-2xl font-fontInter">
+          <h1 className="font-bold font-fontInter text-xl md:text-2xl">
             Shipping Information
           </h1>
         )}
 
-        <div className="font-fontInter mt-[1.3em] flex items-center gap-[1.3em] font-medium ">
-          <div>
+        <div className="font-fontInter mt-[1.3em] flex md:flex-row w-full flex-col md:items-center gap-[1.3em] font-medium ">
+          <div className="md:w-[50%]">
             <label htmlFor="name">First Name</label>
             <input
               name="name"
@@ -127,7 +69,7 @@ const ContactForm: React.FC = () => {
             />
           </div>
 
-          <div>
+          <div className="md:w-[50%]">
             <label htmlFor="address">Last Name</label>
             <input
               name="address"
@@ -163,8 +105,8 @@ const ContactForm: React.FC = () => {
           />
         </div>
 
-        <div className="flex items-center mt-[1.3em] gap-[1.3em] font-fontInter">
-          <div className="font-medium">
+        <div className="flex flex-col md:flex-row md:items-center mt-[1.3em] gap-[1.3em] font-fontInter">
+          <div className="font-medium md:w-[50%]">
             <label htmlFor="country">Country</label>
             <input
               name="country"
@@ -173,7 +115,7 @@ const ContactForm: React.FC = () => {
               className="w-full p-3 border border-gray-text rounded-[0.4em] mt-1 font-fontLato"
             />
           </div>
-          <div>
+          <div className="font-medium md:w-[50%]">
             <label htmlFor="city">City</label>
             <input
               name="city"
@@ -196,8 +138,69 @@ const ContactForm: React.FC = () => {
           />
         </div>
       </div>
+
+      {router.pathname === "/contact" ? (
+        <div className="hidden"></div>
+      ) : (
+        <>
+          {/*Payment Information  */}
+          <div className="mb-[2em]">
+            <div>
+              <h1 className="font-bold font-fontInter text-xl md:text-2xl">
+                Payment Information
+              </h1>
+              <p className="text-gray-primary font-fontLato text-base mt-[0.4em]">
+                Enter your Visa or Mastercard details
+              </p>
+            </div>
+
+            <div className="mt-[1.5em] font-fontInter">
+              <label htmlFor="cardName">Cardholder’s Name</label>
+              <input
+                name="cardName"
+                type="text"
+                placeholder="Enter the name on the card"
+                className="w-full p-3 font-medium border border-gray-text rounded-[0.4em] mt-1 font-fontLato"
+              />
+            </div>
+
+            <div className="mt-[1.3em] font-fontInter">
+              <label htmlFor="cardNumber">Card Number</label>
+              <input
+                name="cardNumber"
+                type="number"
+                placeholder="1234 5678 9123"
+                className="w-full p-3 font-medium border border-gray-text rounded-[0.4em] mt-1 font-fontLato"
+              />
+            </div>
+
+            <div className="font-fontInter mt-[1.3em] flex flex-col md:flex-row md:items-center gap-[1.3em] font-medium ">
+              <div className="md:w-[50%]">
+                <label htmlFor="cvv">CVV</label>
+                <input
+                  name="cvv"
+                  type="number"
+                  placeholder="123"
+                  className="w-full p-3 border border-gray-text rounded-[0.4em] mt-1"
+                />
+              </div>
+
+              <div className="md:w-[50%]">
+                <label htmlFor="date">Expiry Date</label>
+                <input
+                  name="date"
+                  type="text"
+                  placeholder="MM/YY"
+                  className="w-full p-3 border border-gray-text rounded-[0.4em] mt-1"
+                />
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
       <div className="mt-[3.5em] mb-[3em]">
-        <button className="bg-orange-primary w-full p-[0.7em] rounded-[0.4em] text-white-bg font-fontRaleway font-bold">
+        <button className="bg-orange-primary text-base w-full p-[0.7em] rounded-[0.4em] text-white-bg font-fontRaleway font-medium">
           {router.pathname === "/contact" ? "Submit" : " Confirm Payment"}
         </button>
       </div>

@@ -125,7 +125,7 @@ const Featured: React.FC<FeaturedProps> = ({ searchQuery }) => {
     <section
       className={`${
         router.pathname === "/"
-          ? "mt-[4em] md:px-14 px-6 w-full"
+          ? "mt-[4em] md:px-14 px-5 w-full"
           : "mt-[0] md:px-0 px-0"
       } `}
     >
@@ -140,7 +140,7 @@ const Featured: React.FC<FeaturedProps> = ({ searchQuery }) => {
         Featured
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-[2.5em]  mt-6 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2.5em]  mt-6 ">
         {router.pathname === "/"
           ? featured.map((item) => (
               <div key={item.id} className="flex flex-col">
@@ -158,20 +158,40 @@ const Featured: React.FC<FeaturedProps> = ({ searchQuery }) => {
                   {item.title}
                 </h2>
 
-                {/* <div className="flex items-center mt-2"> */}
                 {item.discount && (
-                  <p className="line-through decoration-orange-primary text-gray-primary text-sm my-1">
-                    &#8358;{item.slashedPrice}
+                  <>
+                    <div className="flex gap-[1.4em] mt-[0.7em] items-center md:hidden">
+                      <p className="text-gray-primary font-fontLato text-base line-through decoration-orange-primary">
+                        &#8358;{item.slashedPrice}
+                      </p>
+
+                      <p className="text-black-secondary font-fontInter text-lg md:text-xl font-bold">
+                        &#8358;{item.price}
+                      </p>
+                    </div>
+
+                    <p className="hidden md:block line-through decoration-orange-primary text-gray-primary text-sm my-1">
+                      &#8358;{item.slashedPrice}
+                    </p>
+                  </>
+                )}
+
+                {item.discount ? (
+                  <p className="hidden font-semibold text-black-primary text-lg font-fontInter">
+                    &#8358;{item.price}
+                  </p>
+                ) : (
+                  <p className="block mt-3 md:hidden font-semibold text-black-primary text-lg font-fontInter">
+                    &#8358;{item.price}
                   </p>
                 )}
 
-                {/* </div> */}
                 <div
                   className={`flex justify-between items-center ${
-                    item.discount ? "mt-0" : "mt-7"
+                    item.discount ? "md:mt-0 mt-[0.6em]" : "md:mt-7 mt-[0.6em]"
                   }`}
                 >
-                  <p className="font-semibold text-black-primary text-lg font-fontInter">
+                  <p className="hidden md:block font-semibold text-black-primary text-lg font-fontInter">
                     &#8358;{item.price}
                   </p>
 
@@ -201,17 +221,41 @@ const Featured: React.FC<FeaturedProps> = ({ searchQuery }) => {
                 </h2>
 
                 {product.discount && (
-                  <p className="line-through decoration-orange-primary text-gray-primary text-sm my-1">
-                    &#8358;{product.slashedPrice}
+                  <>
+                    <div className="flex gap-[1.4em] mt-[0.7em] items-center md:hidden">
+                      <p className="text-gray-primary font-fontLato text-base line-through decoration-orange-primary">
+                        &#8358;{product.slashedPrice}
+                      </p>
+
+                      <p className="text-black-secondary font-fontInter text-lg md:text-xl font-bold">
+                        &#8358;{product.price}
+                      </p>
+                    </div>
+
+                    <p className="hidden md:block line-through decoration-orange-primary text-gray-primary text-sm my-1">
+                      &#8358;{product.slashedPrice}
+                    </p>
+                  </>
+                )}
+
+                {product.discount ? (
+                  <p className="hidden font-semibold text-black-primary text-lg font-fontInter">
+                    &#8358;{product.price}
+                  </p>
+                ) : (
+                  <p className="block mt-3 md:hidden font-semibold text-black-primary text-lg font-fontInter">
+                    &#8358;{product.price}
                   </p>
                 )}
 
                 <div
                   className={`flex justify-between items-center ${
-                    product.discount ? "mt-0" : "mt-7"
+                    product.discount
+                      ? "md:mt-0 mt-[0.6em]"
+                      : "md:mt-7 mt-[0.6em]"
                   }`}
                 >
-                  <p className="font-semibold text-black-primary text-lg font-fontInter">
+                  <p className="hidden md:block font-semibold text-black-primary text-lg font-fontInter">
                     &#8358;{product.price}
                   </p>
 
