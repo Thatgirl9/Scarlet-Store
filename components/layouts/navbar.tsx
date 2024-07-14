@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`bg-white-bg w-full md:px-14 px-3 py-5 lg:py-6 lg:pb-7 z-50 fixed top-0 left-0 right-0
+      className={`bg-white-bg max-w-[1280px] my-0 mx-auto md:px-14 px-3 py-5 lg:py-6 lg:pb-7 z-50 fixed top-0 left-0 right-0
  `}
     >
       {/* Second header */}
