@@ -1,40 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Scarlet Store 🏪
 
-## Getting Started
+ **HNG stage 2 task.**
 
-First, run the development server:
+### Task -->
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Design Implementation: Collaborate with your designer to bring their Online shop page design to life. Translate the design into a functional webpage using React(.tsx/.jsx) / Nextjs(.tsx/.jsx). Make sure there’s a checkout page as well.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Requirements -->
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Technologies: Typescript or JavaScript.
+- Responsiveness: The website must be responsive and function well on all devices (desktop, tablet, mobile).
+- The shop page should reflect the designer's vision.
+- Products should be displayed with clear descriptions and images.
+- A checkout page checkout process should be implemented.
+- There will be no functional checkout process at this stage.
+- All static pages must be implemented.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Acceptance Criteria -->
+- Visual Design: Your implementation must be pixel-perfect and reflect what is on the Figma design. (layout, colours, branding).
+- Products are displayed clearly with descriptions and images.
+- Navigation allows users to browse through the shop page.
+- The page is static (no working checkout process).
+- The page should be fully responsive and adjust to different screen sizes.
+- Code Quality: Well-structured, indented, and easy-to-read JSX/TSX code.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Live Site](https://scarlet-store.netlify.app/)
